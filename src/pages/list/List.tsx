@@ -1,7 +1,14 @@
 import React from "react";
+import Header from "../../components/Header";
+import Navbar from "../../components/Navbar";
 
 const List: React.FC = () => {
-  return <div>Hotels</div>;
+  return (
+    <>
+      <Navbar />
+      <Header page="list" />
+    </>
+  );
 };
 
 export default List;

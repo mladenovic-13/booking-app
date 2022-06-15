@@ -10,10 +10,14 @@ import styled from "styled-components";
 import HederSearch from "./HederSearch";
 import PrimaryButton from "./buttons/PrimaryButton";
 
-const Header: React.FC = () => {
+interface Props {
+  page?: string;
+}
+
+const Header = ({ page }: Props) => {
   return (
     <H>
-      <Container>
+      <Container page={page}>
         <HeaderList>
           <ListItem active>
             <FontAwesomeIcon icon={faBed} />
@@ -36,15 +40,19 @@ const Header: React.FC = () => {
             <span>Airport taxis</span>
           </ListItem>
         </HeaderList>
-        <CTA>
-          <h1>A lifetime of dicounts? It's Genius.</h1>
-          <p>
-            Get rewarder for your travels - unlock instant savings of 10% or
-            more with a free account.
-          </p>
-          <PrimaryButton>Sing In / Register</PrimaryButton>
-        </CTA>
-        <HederSearch />
+        {page !== "list" && (
+          <>
+            <CTA>
+              <h1>A lifetime of dicounts? It's Genius.</h1>
+              <p>
+                Get rewarder for your travels - unlock instant savings of 10% or
+                more with a free account.
+              </p>
+              <PrimaryButton>Sing In / Register</PrimaryButton>
+            </CTA>
+            <HederSearch />
+          </>
+        )}
       </Container>
     </H>
   );
@@ -60,7 +68,7 @@ const H = styled.div`
 const Container = styled.div`
   width: 100%;
   max-width: 1024px;
-  margin: 20px 0px 100px 0px;
+  margin: 20px 0px ${(p: any) => (p.page === "list" ? "30px" : "100px")} 0px;
 `;
 const HeaderList = styled.div`
   display: flex;

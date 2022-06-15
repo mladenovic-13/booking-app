@@ -227,9 +227,12 @@ const Options = styled.div`
     width: 200px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   .counterBtn {
-    margin: 0px 5px;
+    margin: 5px 10px;
+    padding: 5px 10px;
+    outline: none;
   }
 `;
 
