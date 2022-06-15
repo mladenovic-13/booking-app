@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -197,6 +197,7 @@ const Container = styled.div`
   bottom: -25px;
   width: 100%;
   max-width: 1024px;
+  z-index: 999;
 `;
 const HeaderSearchItem = styled.div`
   display: flex;

@@ -68,7 +68,7 @@ const H = styled.div`
 const Container = styled.div`
   width: 100%;
   max-width: 1024px;
-  margin: 20px 0px ${(p: any) => (p.page === "list" ? "30px" : "100px")} 0px;
+  margin: 20px 0px ${(p: any) => (p.page === "list" ? "30px" : "80px")} 0px;
 `;
 const HeaderList = styled.div`
   display: flex;
