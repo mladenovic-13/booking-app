@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Featured from "../../components/Featured";
 import FeaturedHotels from "../../components/FeaturedHotels";
+import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import MailList from "../../components/MailList";
 import Navbar from "../../components/Navbar";
@@ -18,6 +19,7 @@ const Home: React.FC = () => {
         <PropertyList />
       </HomeContainer>
       <MailList />
+      <Footer />
     </div>
   );
 };

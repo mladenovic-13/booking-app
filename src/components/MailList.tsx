@@ -23,7 +23,7 @@ const Mail = styled.div`
   color: white;
   height: 150px;
   padding: 50px 0;
-  margin: 50px 0;
+  margin-top: 50px;
 `;
 const Container = styled.div`
   width: 100%;
