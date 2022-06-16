@@ -11,6 +11,7 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
+import { Options } from "../styles/OptionStyle";
 
 const HederSearch: React.FC = () => {
   interface PickDate {
@@ -118,7 +119,7 @@ const HederSearch: React.FC = () => {
           {options.room} room
         </span>
         {openOptions && (
-          <Options>
+          <Options top={"55px"}>
             <div className="option">
               <span>Adult</span>
               <div>
@@ -215,27 +216,6 @@ const HeaderSearchItem = styled.div`
   .date {
     position: absolute;
     top: 53px;
-  }
-`;
-const Options = styled.div`
-  position: absolute;
-  top: 60px;
-  background-color: #fff;
-  -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.7);
-  box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.7);
-  padding: 10px;
-  .option {
-    width: 200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .counterBtn {
-    margin: 5px 10px;
-    padding: 5px 10px;
-    border: 1px solid ${(p: any) => p.theme.color["primary-light"]};
-    border-radius: 3px;
-    outline: none;
   }
 `;
 

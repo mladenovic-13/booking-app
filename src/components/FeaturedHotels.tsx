@@ -4,7 +4,6 @@ import styled from "styled-components";
 const FeaturedHotels = () => {
   return (
     <Hotels>
-      <h1 className="title">Homes guests love</h1>
       <Container>
         <Item>
           <img
@@ -88,10 +87,20 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 const Item = styled.div`
-  width: 24.5%;
+  border: 2px solid white;
+  border-radius: 3px;
+  padding: 20px 10px;
+  transition: 0.3s ease-in;
+  cursor: pointer;
+
+  width: 24%;
   img {
     width: 100%;
     object-fit: cover;
+    border-radius: 3px;
+  }
+  &:hover {
+    border: 2px solid ${(p: any) => p.theme.color["yellow"]};
     border-radius: 3px;
   }
   .name {

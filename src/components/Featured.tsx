@@ -62,6 +62,7 @@ const Container = styled.div`
 `;
 const Item = styled.div`
   position: relative;
+  cursor: pointer;
   h1 {
     font-size: 30px;
     margin: 0;
