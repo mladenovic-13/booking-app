@@ -66,7 +66,7 @@ const Item = styled.div`
   img {
     width: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 3px;
   }
   h2 {
     margin: 0;

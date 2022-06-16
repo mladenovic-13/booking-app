@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Featured from "../../components/Featured";
 import FeaturedHotels from "../../components/FeaturedHotels";
 import Header from "../../components/Header";
+import MailList from "../../components/MailList";
 import Navbar from "../../components/Navbar";
 import PropertyList from "../../components/PropertyList";
 
@@ -16,6 +17,7 @@ const Home: React.FC = () => {
         <Featured />
         <PropertyList />
       </HomeContainer>
+      <MailList />
     </div>
   );
 };

@@ -81,7 +81,7 @@ const Item = styled.div`
     width: 500px;
     height: 250px;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 3px;
   }
 `;
 
