@@ -56,8 +56,8 @@ const Container = styled.div`
   width: 100%;
   max-width: 1024px;
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: space-evenly;
+  gap: 5px;
   flex-wrap: wrap;
 `;
 const Item = styled.div`
@@ -79,7 +79,7 @@ const Item = styled.div`
   }
   .img {
     width: 500px;
-    height: 300px;
+    height: 250px;
     object-fit: cover;
     border-radius: 20px;
   }

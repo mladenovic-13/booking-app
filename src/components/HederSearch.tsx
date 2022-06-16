@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -190,7 +190,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: ${(p: any) => p.theme.color["primary-light"]};
+  color: ${(p: any) => p.theme.color["primary-dark"]};
   padding: 10px;
   border-radius: 5px;
   position: absolute;
@@ -233,6 +233,8 @@ const Options = styled.div`
   .counterBtn {
     margin: 5px 10px;
     padding: 5px 10px;
+    border: 1px solid ${(p: any) => p.theme.color["primary-light"]};
+    border-radius: 3px;
     outline: none;
   }
 `;
