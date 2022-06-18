@@ -2,8 +2,9 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import SideSearch from "../../components/funtional/SideSearch";
-import { Container, Wrapper } from "../../styles/style";
 import Layout from "../../components/Layout/Layout";
+import Gallery from "../../components/gallery/Gallery";
+import { galleryImages } from "../../util/data";
 
 const Hotel = () => {
   const location = useLocation();
@@ -15,17 +16,28 @@ const Hotel = () => {
           <SearchWrapper>
             <SideSearch state={location.state} />
           </SearchWrapper>
-          <ContentWrapper></ContentWrapper>
+          <ContentWrapper>
+            <Gallery images={galleryImages} />
+          </ContentWrapper>
         </Wrapper>
       </Container>
     </Layout>
   );
 };
-
-const SearchWrapper = styled.div`
-  flex: 1;
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
 `;
+const Wrapper = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+`;
+
+const SearchWrapper = styled.div``;
 const ContentWrapper = styled.div`
-  flex: 3;
+  display: flex;
 `;
 export default Hotel;
