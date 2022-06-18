@@ -71,6 +71,7 @@ const Container = styled.div`
     height: 50px;
     margin: 20px;
     color: ${(p: any) => p.theme.color["primary-lighter"]};
+    cursor: pointer;
   }
   .exitIcon {
     width: 50px;
@@ -79,6 +80,7 @@ const Container = styled.div`
     position: absolute;
     top: 10px;
     right: 20px;
+    cursor: pointer;
     color: ${(p: any) => p.theme.color["primary-lighter"]};
   }
 `;

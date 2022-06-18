@@ -5,6 +5,7 @@ import SideSearch from "../../components/funtional/SideSearch";
 import Layout from "../../components/Layout/Layout";
 import Gallery from "../../components/gallery/Gallery";
 import { galleryImages } from "../../util/data";
+import MapWrapper from "../../components/google-map/MapWrapper";
 
 const Hotel = () => {
   const location = useLocation();
@@ -15,6 +16,7 @@ const Hotel = () => {
         <Wrapper>
           <SearchWrapper>
             <SideSearch state={location.state} />
+            <MapWrapper withButton size="s" />
           </SearchWrapper>
           <ContentWrapper>
             <Gallery images={galleryImages} />
@@ -36,7 +38,12 @@ const Wrapper = styled.div`
   gap: 20px;
 `;
 
-const SearchWrapper = styled.div``;
+const SearchWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
 const ContentWrapper = styled.div`
   display: flex;
 `;
