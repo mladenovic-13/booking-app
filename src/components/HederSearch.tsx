@@ -7,8 +7,12 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import DateFromTo from "./funtional/DateFromTo";
 import PersonOptions from "./funtional/PersonOptions";
+import { Link, useNavigate } from "react-router-dom";
 
 const HederSearch: React.FC = () => {
+  // Search terms
+  const [search, setSearch] = useState<string>("");
+
   // Date states
   const defaultDate: PickDate = {
     startDate: new Date(),
@@ -23,6 +27,12 @@ const HederSearch: React.FC = () => {
   const [options, setOptions] = useState<Option>(defaultOptions);
   const [openOptions, setOpenOptions] = useState<boolean>(false);
 
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    navigate("/hotels", { state: { search, date, options } });
+  };
+
   return (
     <Container>
       <HeaderSearchItem>
@@ -31,6 +41,7 @@ const HederSearch: React.FC = () => {
           type="text"
           placeholder="Where are you going?"
           className="searchInput"
+          onChange={(e) => setSearch(e.target.value)}
         />
       </HeaderSearchItem>
       <DateFromTo
@@ -44,9 +55,14 @@ const HederSearch: React.FC = () => {
         setOptions={setOptions}
         openOptions={openOptions}
         setOpenOptions={setOpenOptions}
+        top={"53px"}
       />
       <HeaderSearchItem>
-        <PrimaryButton>Search</PrimaryButton>
+        <Link to="/hotels" state={{ search, date, options }}>
+          <div onClick={handleSearch}>
+            <PrimaryButton>Search</PrimaryButton>
+          </div>
+        </Link>
       </HeaderSearchItem>
     </Container>
   );

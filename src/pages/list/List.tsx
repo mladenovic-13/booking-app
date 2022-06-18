@@ -1,28 +1,30 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../../components/Header";
-import Navbar from "../../components/Navbar";
 import ResultItem from "./ResultItem";
 import SideSearch from "../../components/funtional/SideSearch";
+import { useLocation } from "react-router-dom";
+import Layout from "../../components/Layout/Layout";
 
 const List = () => {
+  const location = useLocation();
+
   return (
     <>
-      <Navbar />
-      <Header page="list" />
-      <ListContainer>
-        <ListWrapper>
-          <SideSearch />
-          <ListResult>
-            <ResultItem />
-            <ResultItem />
-            <ResultItem />
-            <ResultItem />
-            <ResultItem />
-            <ResultItem />
-          </ListResult>
-        </ListWrapper>
-      </ListContainer>
+      <Layout page="list">
+        <ListContainer>
+          <ListWrapper>
+            <SideSearch state={location.state} />
+            <ListResult>
+              <ResultItem state={location.state} />
+              <ResultItem state={location.state} />
+              <ResultItem state={location.state} />
+              <ResultItem state={location.state} />
+              <ResultItem state={location.state} />
+              <ResultItem state={location.state} />
+            </ListResult>
+          </ListWrapper>
+        </ListContainer>
+      </Layout>
     </>
   );
 };

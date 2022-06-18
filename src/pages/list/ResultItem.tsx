@@ -1,7 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const ListItem = () => {
+interface Props {
+  state: any;
+}
+
+const ListItem = ({ state }: Props) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/hotels/id`, { state });
+  };
+
   return (
     <Container>
       <HotelDetails>
@@ -42,7 +53,7 @@ const ListItem = () => {
         <p className="options">3 nights, 2 adults</p>
         <p className="price">$ 340</p>
         <p className="taxes">Includes taxes and charges</p>
-        <button>
+        <button className="btn" onClick={handleClick}>
           See availability <span>&gt;</span>
         </button>
       </PriceAndReviews>
@@ -150,7 +161,7 @@ const PriceAndReviews = styled.div`
     font-size: 32px;
     font-weight: 400;
   }
-  button {
+  .btn {
     background-color: ${(p: any) => p.theme.color["primary-btn"]};
     font-size: 16px;
     color: white;
@@ -159,9 +170,15 @@ const PriceAndReviews = styled.div`
     display: flex;
     align-items: center;
     margin-top: 8px;
+    transition: 0.5s ease-in-out;
   }
-  button > span {
+  .btn > span {
     margin-left: 10px;
+  }
+  .btn:hover {
+    background-color: ${(p: any) => p.theme.color["primary-dark"]};
+    transform: scale(1.05);
+    border-radius: 3px;
   }
 `;
 const Stars = styled.span``;

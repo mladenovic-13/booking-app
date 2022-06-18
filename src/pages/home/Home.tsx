@@ -2,24 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import Featured from "../../components/Featured";
 import FeaturedHotels from "../../components/FeaturedHotels";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import MailList from "../../components/MailList";
-import Navbar from "../../components/Navbar";
+import Layout from "../../components/Layout/Layout";
 import PropertyList from "../../components/PropertyList";
 
 const Home: React.FC = () => {
   return (
     <div>
-      <Navbar />
-      <Header />
-      <HomeContainer>
-        <FeaturedHotels />
-        <Featured />
-        <PropertyList />
-      </HomeContainer>
-      <MailList />
-      <Footer />
+      <Layout>
+        <HomeContainer>
+          <FeaturedHotels />
+          <Featured />
+          <PropertyList />
+        </HomeContainer>
+      </Layout>
     </div>
   );
 };

@@ -10,19 +10,18 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
-import { Options } from "../../styles/OptionStyle";
+import PersonOptions from "./PersonOptions";
 
-const SideSearch = () => {
+interface Props {
+  state: any;
+}
+const SideSearch = ({ state }: Props) => {
+  const [search, setSearch] = useState<string>(state.search);
   // PICK DATE
-  interface PickDate {
-    startDate: Date;
-    endDate: Date;
-    key: string;
-  }
   const [date, setDate] = useState<PickDate[]>([
     {
-      startDate: new Date(),
-      endDate: new Date(),
+      startDate: state.date[0].startDate,
+      endDate: state.date[0].endDate,
       key: "selection",
     },
   ]);
@@ -33,65 +32,20 @@ const SideSearch = () => {
   // OPTIONS
   const [openOptions, setOpenOptions] = useState<boolean>(false);
 
-  enum OptionType {
-    ADULT = 1,
-    CHILDREN,
-    ROOM,
-  }
+  const [options, setOptions] = useState<Option>(state.options);
 
-  interface Option {
-    adult: number;
-    children: number;
-    room: number;
-  }
-  const [options, setOptions] = useState<Option>({
-    adult: 1,
-    children: 0,
-    room: 1,
-  });
-
-  const handleIncrease = (optionType: OptionType) => {
-    switch (optionType) {
-      case OptionType.ADULT:
-        setOptions((prev) => ({ ...prev, adult: prev.adult + 1 }));
-        break;
-      case OptionType.CHILDREN:
-        setOptions((prev) => ({ ...prev, children: prev.children + 1 }));
-        break;
-      case OptionType.ROOM:
-        setOptions((prev) => ({ ...prev, room: prev.room + 1 }));
-        break;
-
-      default:
-        break;
-    }
-  };
-  const handleDecrease = (optionType: OptionType) => {
-    switch (optionType) {
-      case OptionType.ADULT:
-        if (options.adult > 1)
-          setOptions((prev) => ({ ...prev, adult: prev.adult - 1 }));
-        break;
-      case OptionType.CHILDREN:
-        if (options.children > 0)
-          setOptions((prev) => ({ ...prev, children: prev.children - 1 }));
-        break;
-      case OptionType.ROOM:
-        if (options.room > 1)
-          setOptions((prev) => ({ ...prev, room: prev.room - 1 }));
-        break;
-
-      default:
-        break;
-    }
-  };
   return (
     <ListSearch>
       <h1 className="title">Search</h1>
       <p>Destination/property name:</p>
       <div className="input">
         <FontAwesomeIcon className="icon" icon={faSearch} />
-        <input className="inputInput" type="text" name="" id="" />
+        <input
+          onChange={(e) => setSearch(e.target.value)}
+          className="inputInput"
+          type="text"
+          defaultValue={search}
+        />
       </div>
       <p>Check-in date</p>
       <div className="input">
@@ -141,75 +95,14 @@ const SideSearch = () => {
         />
       </div>
       <p>7-night stay</p>
-      <div className="input">
-        <p onClick={() => setOpenOptions(!openOptions)} className="inputTxt">
-          {options.adult} adult &#183; {options.children} children &#183;{" "}
-          {options.room} room
-        </p>
-        {openOptions && (
-          <Options top={"35px"}>
-            <div className="option">
-              <span>Adult</span>
-              <div>
-                <button
-                  className="counterBtn"
-                  onClick={() => handleDecrease(OptionType.ADULT)}
-                >
-                  -
-                </button>
-                <span>{options.adult}</span>
-                <button
-                  className="counterBtn"
-                  onClick={() => handleIncrease(OptionType.ADULT)}
-                >
-                  +
-                </button>
-              </div>
-            </div>
-            <div className="option">
-              <span>Children</span>
-              <div>
-                <button
-                  className="counterBtn"
-                  onClick={() => handleDecrease(OptionType.CHILDREN)}
-                >
-                  -
-                </button>
-                <span>{options.children}</span>
-                <button
-                  className="counterBtn"
-                  onClick={() => handleIncrease(OptionType.CHILDREN)}
-                >
-                  +
-                </button>
-              </div>
-            </div>
-            <div className="option">
-              <span>Room</span>
-              <div>
-                <button
-                  className="counterBtn"
-                  onClick={() => handleDecrease(OptionType.ROOM)}
-                >
-                  -
-                </button>
-                <span>{options.room}</span>
-                <button
-                  className="counterBtn"
-                  onClick={() => handleIncrease(OptionType.ROOM)}
-                >
-                  +
-                </button>
-              </div>
-            </div>
-          </Options>
-        )}
-        <FontAwesomeIcon
-          onClick={() => setOpenOptions(!openOptions)}
-          className="icon"
-          icon={faAngleDown}
-        />
-      </div>
+      <PersonOptions
+        options={options}
+        setOptions={setOptions}
+        openOptions={openOptions}
+        setOpenOptions={setOpenOptions}
+        style={optionsStyle}
+        top={"35px"}
+      />
       <button className="searchBtn">Search</button>
     </ListSearch>
   );
@@ -245,6 +138,12 @@ const ListSearch = styled.div`
     outline: none;
     border: none;
     padding: 10px;
+    font-size: 16px;
+    width: 60%;
+    text-align: left;
+  }
+  .inputInput:focus {
+    width: 80%;
   }
   .inputTxt {
     font-size: 16px;
@@ -274,4 +173,19 @@ const ListSearch = styled.div`
     z-index: 999;
   }
 `;
+const optionsStyle = {
+  position: "relative",
+  borderRadius: "3px",
+  outline: "none",
+  border: "none",
+  backgroundColor: "white",
+  display: "flex",
+  alignItems: "center",
+  gap: "25px",
+  marginBottom: "15px",
+  fontSize: "16px",
+  padding: "6px",
+  fontWeight: "300",
+  cursor: "pointer",
+};
 export default SideSearch;

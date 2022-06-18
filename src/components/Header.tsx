@@ -64,6 +64,7 @@ const H = styled.div`
   color: white;
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
 `;
 const Container = styled.div`
   width: 100%;

@@ -9,6 +9,8 @@ interface Props {
   setOptions: React.Dispatch<React.SetStateAction<Option>>;
   openOptions: boolean;
   setOpenOptions: React.Dispatch<React.SetStateAction<boolean>>;
+  style?: object;
+  top?: string;
 }
 
 const PersonOptions = ({
@@ -16,6 +18,8 @@ const PersonOptions = ({
   setOptions,
   openOptions,
   setOpenOptions,
+  style,
+  top,
 }: Props) => {
   enum OptionType {
     ADULT = 1,
@@ -59,14 +63,14 @@ const PersonOptions = ({
   };
 
   return (
-    <Container>
+    <Container style={style}>
       <FontAwesomeIcon icon={faPerson} className="icon" />
       <span onClick={() => setOpenOptions(!openOptions)} className="text">
         {options.adult} adult &#183; {options.children} children &#183;{" "}
         {options.room} room
       </span>
       {openOptions && (
-        <Options top={"55px"}>
+        <Options top={top}>
           <div className="option">
             <span>Adult</span>
             <div>
@@ -128,6 +132,7 @@ const PersonOptions = ({
 };
 
 const Container = styled.div`
+  ${(p: any) => p.style}
   display: flex;
   align-items: center;
   gap: 10px;
