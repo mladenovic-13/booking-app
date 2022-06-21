@@ -98,6 +98,7 @@ const HotelDetails = styled.div`
   .hotelDetails {
     display: flex;
     flex-direction: column;
+    color: ${(p: any) => p.theme.color["primary-dark"]};
   }
   .detailsTitle {
     font-weight: 600;
@@ -128,6 +129,7 @@ const PriceAndReviews = styled.div`
     display: flex;
     gap: 10px;
     margin-bottom: 3px;
+    color: ${(p: any) => p.theme.color["primary-dark"]};
   }
   .reviews > h2 {
     font-size: 18px;
@@ -159,7 +161,8 @@ const PriceAndReviews = styled.div`
   }
   .price {
     font-size: 32px;
-    font-weight: 400;
+    font-weight: 500;
+    color: ${(p: any) => p.theme.color["primary-dark"]};
   }
   .btn {
     background-color: ${(p: any) => p.theme.color["primary-btn"]};

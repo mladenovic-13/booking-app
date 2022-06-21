@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
 
 const Nav = styled.div`
   background-color: ${(props: any) => props.theme.color["primary-dark"]};
-  height: 50px;
+  height: 48px;
   display: flex;
   justify-content: center;
 `;

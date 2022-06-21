@@ -159,7 +159,6 @@ const ListSearch = styled.div`
     width: 100%;
     padding: 10px;
     font-size: 18px;
-    /* background-color: ${(p: any) => p.theme.color["primary-dark"]}; */
     background-color: ${(p: any) => p.theme.color["primary-btn"]};
     border: 1px solid ${(p: any) => p.theme.color["primary-dark"]};
     cursor: pointer;

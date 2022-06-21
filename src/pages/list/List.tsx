@@ -32,7 +32,7 @@ const List = () => {
 const ListContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 20px;
 `;
 const ListWrapper = styled.div`
   width: 100%;

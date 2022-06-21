@@ -24,13 +24,10 @@ const MapWrapper: React.FC<Props> = ({ withButton, size }) => {
   };
   return (
     <div className="map">
-      <Wrapper
-        apiKey="AIzaSyC-Ba484gzjUMFGtKMaekxyzYX8hrzt_20"
-        render={render}
-      />
+      <Wrapper apiKey={process.env.GOOGLE_MAPS_API_KEY!} render={render} />
       {withButton && (
         <div onClick={() => setOpen(true)}>
-          <StyledButton>Full Screen</StyledButton>
+          <StyledButton>Show On Map</StyledButton>
         </div>
       )}
       {open && <MapModal open={open} setOpen={setOpen} />}

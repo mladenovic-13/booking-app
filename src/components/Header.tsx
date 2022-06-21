@@ -64,12 +64,12 @@ const H = styled.div`
   color: white;
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 16px;
 `;
 const Container = styled.div`
   width: 100%;
   max-width: 1024px;
-  margin: 20px 0px ${(p: any) => (p.page === "list" ? "30px" : "80px")} 0px;
+  margin: 10px 0px ${(p: any) => (p.page === "list" ? "24px" : "80px")} 0px;
 `;
 const HeaderList = styled.div`
   display: flex;
